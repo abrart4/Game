@@ -34,10 +34,15 @@ public class Game {
      */
     public void play() {
         int points = -1;
-        while (points != ) {
+        while (!(points >= 1 && points <= 300)) {
             System.out.println("Give me a number from 1 to 300. It will be important...");
-            points = new Scanner(System.in)
+            Scanner s = new Scanner(System.in);
+            if (s.hasNextInt()) {
+                points = s.nextInt();
+            }
         }
+        levelOne.setPoints(points);
+        levelOne.reachGoal();
     }
 
     /** Returns the score earned in the most recently played game, as described in part (a) */
@@ -63,6 +68,15 @@ public class Game {
      * Precondition: num > 0
      */
     public int playManyTimes(int num) {
-        return -1;
+        int max = 0;
+        while (num > 0) {
+            play();
+            int score = getScore();
+            if (score > max) {
+                max = score;
+            }
+            num --;
+        }
+        return max;
     }
 }
