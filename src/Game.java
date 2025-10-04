@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+// Game!
 public class Game {
     private Level levelOne;
     private Level levelTwo;
